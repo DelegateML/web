@@ -1,0 +1,60 @@
+---
+import Section from './Section.astro';
+import Button from './Button.astro';
+
+interface Props {
+  align?: 'center' | 'left';
+  title: string;
+  subtitle?: string;
+  primaryAction?: { label: string; href: string };
+  secondaryAction?: { label: string; href: string };
+}
+
+const { 
+  align = 'center', 
+  title, 
+  subtitle, 
+  primaryAction, 
+  secondaryAction 
+} = Astro.props;
+
+const isCenter = align === 'center';
+---
+
+<Section class="pt-32 pb-20 md:pt-40 md:pb-32">
+  <div class:list={["max-w-4xl mx-auto", isCenter ? "text-center" : "text-left"]}>
+    {/* Badge / Label Slot */}
+    <div class="mb-6 flex justify-center md:justify-start">
+      <slot name="badge" />
+    </div>
+
+    <h1 class="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl tracking-tight text-stone-900 mb-6 leading-[1.1]">
+      {title}
+    </h1>
+    
+    {subtitle && (
+      <p class="text-lg md:text-xl text-stone-600 mb-10 leading-relaxed max-w-2xl mx-auto">
+        {subtitle}
+      </p>
+    )}
+
+    <div class:list={["flex flex-col sm:flex-row gap-4", isCenter ? "justify-center" : "justify-start"]}>
+      {primaryAction && (
+        <Button href={primaryAction.href} size="lg">
+          {primaryAction.label}
+        </Button>
+      )}
+      {secondaryAction && (
+        <Button href={secondaryAction.href} variant="outline" size="lg">
+          {secondaryAction.label}
+        </Button>
+      )}
+      <slot name="actions" />
+    </div>
+
+    {/* Visual/Image Slot */}
+    <div class="mt-16 md:mt-24">
+      <slot name="image" />
+    </div>
+  </div>
+</Section>

@@ -1,0 +1,14 @@
+{
+  "name": "@delegateml/shared",
+  "version": "1.0.0",
+  "description": "Shared components and styles for DelegateML sites",
+  "type": "module",
+  "exports": {
+    "./components/*": "./src/components/*",
+    "./styles/*": "./src/styles/*",
+    "./layouts/*": "./src/layouts/*"
+  },
+  "dependencies": {
+    "astro": "^4.0.0"
+  }
+}
