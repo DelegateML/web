@@ -1,0 +1,4 @@
+reporting_period,source,account,timezone,currency,date,campaign_id,campaign_name,adset_id,adset_name,ad_id,ad_name,spend,impressions,clicks,landing_page_views,conversions,conversion_name,revenue,notes
+weekly,meta,ACME Ads Account,Europe/London,GBP,2026-02-01,1234567890,Prospecting - Broad,2345678901,UK - Broad,3456789012,Video Ad 1,120.34,14567,342,89,12,Purchases,840.00,"Example row; keep IDs if possible"
+weekly,google_ads,ACME Google Ads,Europe/London,GBP,2026-02-01,99887766,Brand Search,,,"",,95.10,20123,410,,8,Purchases,560.00,"If a platform lacks a field, leave blank"
+weekly,ga4,ACME GA4,Europe/London,GBP,2026-02-01,,,,,,,,"",,"",,"",12,Purchases,780.00,"GA4 rows often won’t map cleanly to ad IDs—use campaign or channel grouping"
