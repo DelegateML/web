@@ -212,15 +212,15 @@ Each site has a dedicated team folder with comprehensive content and strategy ma
 **Instructions:** Work through this checklist sequentially. Mark items as `[x]` when completed. If you encounter blockers, note them in the "Blockers" section below before handing off to another agent.
 
 ### Phase 1: Foundation (Do First)
-- [ ] Read both skill files (`skills/frontend-design/SKILL.md`, `skills/b2b-saas-site/SKILL.md`)
-- [ ] Review all three `teams/{site}/landing-page-copy.md` files to understand content
-- [ ] Set up Astro project with Tailwind CSS
-- [ ] Configure shared design tokens (colors, typography, spacing)
-- [ ] Set up base path handling for GitHub Pages subpaths
-- [ ] Create shared component directory structure
+- [x] Read both skill files (`skills/frontend-design/SKILL.md`, `skills/b2b-saas-site/SKILL.md`)
+- [x] Review all three `teams/{site}/landing-page-copy.md` files to understand content
+- [x] Set up Astro project with Tailwind CSS
+- [x] Configure shared design tokens (colors, typography, spacing)
+- [x] Set up base path handling for GitHub Pages subpaths
+- [x] Create shared component directory structure
 
 **Blockers for Phase 1:**
-<!-- Note any issues encountered here -->
+None - Phase 1 completed successfully.
 
 ### Phase 2: Design System Components
 - [ ] Build Header/Nav component with mobile hamburger

@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '@shared/components/Hero.astro';
+import FeatureGrid from '@shared/components/FeatureGrid.astro';
+import HowItWorks from '@shared/components/HowItWorks.astro';
+import CTASection from '@shared/components/CTASection.astro';
+import FAQ from '@shared/components/FAQ.astro';
+
+import '../styles/global.css';
+
+const features = [
+  {
+    title: "Monthly data request list",
+    description: "Clear owners, fields, definitions, and due dates—no more chasing missing inputs.",
+    icon: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='18' rx='2' ry='2'/><line x1='16' y1='2' x2='16' y2='6'/><line x1='8' y1='2' x2='8' y2='6'/><line x1='3' y1='10' x2='21' y2='10'/></svg>"
+  },
+  {
+    title: "KPI table",
+    description: "Your metrics with consistent definitions and period-over-period comparability.",
+    icon: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 3v18h18'/><path d='M18.7 8l-5.1 5.2-2.8-2.7L7 14.3'/></svg>"
+  },
+  {
+    title: "Narrative draft",
+    description: "What changed, what improved/declined, what's still unknown—ready for your review.",
+    icon: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><polyline points='14 2 14 8 20 8'/><line x1='16' y1='13' x2='8' y2='13'/><line x1='16' y1='17' x2='8' y2='17'/><polyline points='10 9 9 9 8 9'/></svg>"
+  },
+  {
+    title: "Exceptions / unknowns log",
+    description: "Missing inputs, questionable numbers, open questions—all documented.",
+    icon: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><line x1='12' y1='8' x2='12' y2='12'/><line x1='12' y1='16' x2='12.01' y2='16'/></svg>"
+  },
+  {
+    title: "Audit trail notes",
+    description: "Where each number came from and what assumptions were used—full transparency."
+  }
+];
+
+const steps = [
+  {
+    number: 1,
+    title: "Send inputs",
+    description: "Spreadsheets, exports, prior pack, questionnaire, notes—redacted is fine."
+  },
+  {
+    number: 2,
+    title: "We assemble + QA",
+    description: "Reconcile definitions, chase gaps, flag inconsistencies, draft the pack."
+  },
+  {
+    number: 3,
+    title: "You approve + send",
+    description: "One review pass, then submit or use internally."
+  }
+];
+
+const faqs = [
+  {
+    question: "Is this legal/compliance advice?",
+    answer: "No. We help assemble/standardize inputs and produce a consistent reporting pack. You (and your counsel/auditor, if any) still approve and submit."
+  },
+  {
+    question: "What standards do you support?",
+    answer: "We work inside the framework you already use (SECR, TCFD-aligned disclosures, ISSB/IFRS S1/S2, CSRD-style questionnaires). If you're unsure, we start with your existing questionnaire/report outline."
+  },
+  {
+    question: "Do you need access to our systems?",
+    answer: "Not initially. We can start with exports and shared files. If it's a fit, we can discuss read-only access later."
+  },
+  {
+    question: "Turnaround?",
+    answer: "Depends on scope and input maturity; Phase 1 aims to prove we can deliver a predictable monthly cadence."
+  },
+  {
+    question: "Pricing?",
+    answer: "Concierge pricing in Phase 1 (fixed per monthly pack once scope is clear, in GBP). Founding member pricing for the first few teams."
+  }
+];
+---
+
+<Layout>
+  <Hero
+    eyebrow="For UK mid-market teams"
+    headline="Monthly ESG reporting, done for you"
+    subhead="A concierge ESG reporting service for teams who need the same pack every month or quarter—without the spreadsheet chaos."
+    primaryCta={{ text: "Get free 'missing inputs' checklist", href: "#cta" }}
+    secondaryCta={{ text: "Book 10 minutes", href: "#contact" }}
+    microcopy="Send a redacted questionnaire. Get a 1-page blockers list back."
+    trustText="UK-first • Works with your existing framework • Monthly cadence"
+  />
+
+  <FeatureGrid
+    title="The monthly pack"
+    features={features}
+  />
+
+  <HowItWorks
+    title="How it works"
+    steps={steps}
+    variant="dark"
+  />
+
+  <CTASection
+    title="Ready to stop rebuilding the ESG pack every month?"
+    description="Get the free 'missing inputs' checklist and see where your current workflow stalls."
+    cta={{ text: "Get checklist", href: "#contact" }}
+    variant="accent"
+  />
+
+  <FAQ
+    title="Questions?"
+    items={faqs}
+  />
+</Layout>

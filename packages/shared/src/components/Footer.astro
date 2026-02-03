@@ -1,0 +1,195 @@
+---
+// Footer Component
+// Shared footer with DelegateML parent company branding
+
+interface Props {
+  siteName: string;
+}
+
+const { siteName } = Astro.props;
+
+const currentYear = new Date().getFullYear();
+
+const footerLinks = {
+  product: [
+    { text: 'Features', href: '#features' },
+    { text: 'How it works', href: '#how-it-works' },
+    { text: 'FAQ', href: '#faq' },
+  ],
+  company: [
+    { text: 'About DelegateML', href: 'https://delegateml.com' },
+    { text: 'Contact', href: '#contact' },
+  ],
+  legal: [
+    { text: 'Privacy', href: '/privacy' },
+    { text: 'Terms', href: '/terms' },
+  ],
+};
+---
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="delegateml-badge">
+          <span class="badge-text">A DelegateML company</span>
+        </div>
+        <p class="footer-description">
+          {siteName} is part of DelegateML — building practical tools 
+          for modern business operations.
+        </p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-column">
+          <h3 class="footer-heading">Product</h3>
+          <ul class="footer-list">
+            {footerLinks.product.map(link => (
+              <li>
+                <a href={link.href} class="footer-link">{link.text}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-heading">Company</h3>
+          <ul class="footer-list">
+            {footerLinks.company.map(link => (
+              <li>
+                <a href={link.href} class="footer-link">{link.text}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-heading">Legal</h3>
+          <ul class="footer-list">
+            {footerLinks.legal.map(link => (
+              <li>
+                <a href={link.href} class="footer-link">{link.text}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">
+        © {currentYear} {siteName}. A service of DelegateML. 
+        All rights reserved. Made in the UK.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--bg-dark);
+    color: var(--text-inverse);
+    padding: var(--space-3xl) 0 var(--space-xl);
+    margin-top: auto;
+  }
+  
+  .footer-container {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0 var(--space-l);
+  }
+  
+  .footer-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  @media (min-width: 768px) {
+    .footer-main {
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-3xl);
+    }
+  }
+  
+  .footer-brand {
+    max-width: 320px;
+  }
+  
+  .delegateml-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-s);
+    margin-bottom: var(--space-m);
+    padding: var(--space-xs) var(--space-s);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-s);
+  }
+  
+  .badge-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .footer-description {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0;
+  }
+  
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+  
+  @media (min-width: 640px) {
+    .footer-links {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .footer-heading {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: var(--space-m);
+  }
+  
+  .footer-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+  }
+  
+  .footer-link {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color var(--transition-fast) ease;
+  }
+  
+  .footer-link:hover {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+  }
+  
+  .footer-bottom {
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .copyright {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 0;
+  }
+</style>

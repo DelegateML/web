@@ -1,0 +1,14 @@
+{
+  "name": "@delegateml/shared",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "./styles": "./src/styles/index.css",
+    "./components/*": "./src/components/*.astro",
+    "./layouts/*": "./src/layouts/*.astro",
+    "./tailwind": "./tailwind.config.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.2.0"
+  }
+}

@@ -1,0 +1,41 @@
+---
+// Proposal Desk Layout - Extends shared MainLayout
+// Site-specific layout for the Proposal Desk product
+
+import MainLayout from '@shared/layouts/MainLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  showHeader?: boolean;
+  showFooter?: boolean;
+}
+
+const { 
+  title = 'Stop scope creep before it starts', 
+  description = "Done-for-you proposal + SOW drafting and QA for boutique agencies—optimized for faster close and fewer scope surprises.", 
+  ogImage,
+  showHeader = true,
+  showFooter = true
+} = Astro.props;
+
+const siteName = "Proposal Desk";
+const siteTagline = "By DelegateML";
+---
+
+<MainLayout 
+  title={title}
+  description={description}
+  siteName={siteName}
+  siteTagline={siteTagline}
+  ogImage={ogImage}
+  showHeader={showHeader}
+  showFooter={showFooter}
+  headerCta={{
+    text: "Start Free Trial",
+    href: "#trial"
+  }}
+>
+  <slot />
+</MainLayout>

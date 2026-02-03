@@ -1,0 +1,79 @@
+---
+// Base Layout - Shared across all sites
+// Provides common HTML structure, meta tags, and script loading
+
+interface Props {
+  title: string;
+  description: string;
+  siteName: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+}
+
+const { 
+  title, 
+  description, 
+  siteName,
+  ogImage = '/og-image.png',
+  canonicalUrl 
+} = Astro.props;
+
+const fullTitle = `${title} | ${siteName}`;
+const currentUrl = canonicalUrl || Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Primary Meta Tags -->
+  <title>{fullTitle}</title>
+  <meta name="description" content={description}>
+  <meta name="robots" content="index, follow">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href={currentUrl}>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={currentUrl}>
+  <meta property="og:title" content={fullTitle}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={ogImage}>
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content={currentUrl}>
+  <meta property="twitter:title" content={fullTitle}>
+  <meta property="twitter:description" content={description}>
+  <meta property="twitter:image" content={ogImage}>
+  
+  <!-- Geo targeting - UK focused -->
+  <meta name="geo.region" content="GB">
+  <meta name="geo.placename" content="United Kingdom">
+  
+  <!-- Fonts - Load system fonts for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Analytics placeholder - disabled by default -->
+  {import.meta.env.ANALYTICS_ID && (
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.ANALYTICS_ID}`}></script>
+    <script define:vars={{ id: import.meta.env.ANALYTICS_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', id);
+    </script>
+  )}
+</head>
+<body>
+  <slot />
+</body>
+</html>

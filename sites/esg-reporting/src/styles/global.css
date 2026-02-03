@@ -1,0 +1,7 @@
+@import '@shared/styles/index.css';
+
+/* ESG Reporting specific styles */
+:root {
+  --esg-primary: #10b981;
+  --esg-secondary: #059669;
+}

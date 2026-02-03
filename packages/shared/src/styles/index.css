@@ -1,0 +1,173 @@
+/*
+ * DelegateML Global Styles
+ * Shared across all sites - design tokens as CSS custom properties
+ */
+
+:root {
+  /* Background colors */
+  --bg-base: #fafafa;
+  --bg-surface: #f4f4f5;
+  --bg-dark: #18181b;
+  
+  /* Text colors */
+  --text-primary: #18181b;
+  --text-secondary: #52525b;
+  --text-muted: #a1a1aa;
+  --text-inverse: #fafafa;
+  
+  /* Border colors */
+  --border-light: #e4e4e7;
+  --border-medium: #d4d4d8;
+  
+  /* Brand accent - Deep navy blue */
+  --accent: #1e3a5f;
+  --accent-hover: #152a45;
+  --accent-light: #e8eef5;
+  --accent-pale: #f5f8fb;
+  
+  /* Success / trust signal */
+  --success: #059669;
+  --success-light: #d1fae5;
+  
+  /* Warning & Error */
+  --warning: #d97706;
+  --error: #dc2626;
+  
+  /* Typography */
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', Monaco, Inconsolata, monospace;
+  
+  /* Spacing scale (8px base) */
+  --space-xs: 4px;
+  --space-s: 8px;
+  --space-m: 16px;
+  --space-l: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+  
+  /* Border radius */
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --radius-l: 16px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  
+  /* Transitions */
+  --transition-fast: 150ms;
+  --transition-base: 300ms;
+  --transition-slow: 500ms;
+  
+  /* Container widths */
+  --max-content: 1200px;
+  --max-narrow: 720px;
+}
+
+/* Reset and base styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography base styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; }
+h2 { font-size: clamp(2rem, 4vw, 2.5rem); line-height: 1.2; }
+h3 { font-size: 1.5rem; line-height: 1.3; font-weight: 600; }
+h4 { font-size: 1.25rem; line-height: 1.4; font-weight: 600; }
+
+p {
+  margin-bottom: 1em;
+}
+
+/* Link base styles */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition-fast) ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* Button base styles */
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Image defaults */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility classes that complement Tailwind */
+.container {
+  width: 100%;
+  max-width: var(--max-content);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-l);
+  padding-right: var(--space-l);
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Accessibility - Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visibility for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--accent-light);
+  color: var(--accent);
+}

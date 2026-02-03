@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '@shared/components/Hero.astro';
+import FeatureGrid from '@shared/components/FeatureGrid.astro';
+import HowItWorks from '@shared/components/HowItWorks.astro';
+import CTASection from '@shared/components/CTASection.astro';
+import FAQ from '@shared/components/FAQ.astro';
+
+import '../styles/global.css';
+
+const features = [
+  {
+    title: "Single reconciled sheet",
+    description: "Spend, clicks, conversions, revenue—all in one place, properly aligned.",
+    icon: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2' ry='2'/><line x1='3' y1='9' x2='21' y2='9'/><line x1='9' y1='21' x2='9' y2='9'/></svg>"
+  },
+  {
+    title: "Exceptions list",
+    description: "Clear flags on what changed, mismatches, missing rows, and duplicated lines.",
+    icon: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z'/><line x1='12' y1='9' x2='12' y2='13'/><line x1='12' y1='17' x2='12.01' y2='17'/></svg>"
+  },
+  {
+    title: "Client-ready summary",
+    description: "Top variances explained with likely causes—ready to forward.",
+    icon: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><polyline points='14 2 14 8 20 8'/><line x1='16' y1='13' x2='8' y2='13'/><line x1='16' y1='17' x2='8' y2='17'/><polyline points='10 9 9 9 8 9'/></svg>"
+  },
+  {
+    title: "Repeatable process",
+    description: "Same format every week or month—no rebuilding the workflow.",
+    icon: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3'/></svg>"
+  }
+];
+
+const steps = [
+  {
+    number: 1,
+    title: "Send exports",
+    description: "CSV exports from 2–3 sources (Meta, Google, Shopify, etc.). Start small."
+  },
+  {
+    number: 2,
+    title: "We reconcile",
+    description: "We match and flag every discrepancy—no guessing, everything traced."
+  },
+  {
+    number: 3,
+    title: "You get deliverables",
+    description: "Reconciled sheet + exceptions list you can forward to clients or internal teams."
+  }
+];
+
+const faqs = [
+  {
+    question: "Do you need access to our ad accounts?",
+    answer: "Not to start. CSV exports are enough for the first pass. If it's a fit, we can add read-only access later."
+  },
+  {
+    question: "Which platforms do you support?",
+    answer: "We start with 2–3 sources you already export (Meta, Google, TikTok, LinkedIn, GA4, Shopify). We expand only after the first workflow is stable."
+  },
+  {
+    question: "What do you need from me?",
+    answer: "Your exports + your 'source of truth' definition (what number must match for billing/reporting)."
+  },
+  {
+    question: "What causes mismatches?",
+    answer: "Common culprits: timezones, currency, attribution windows, tracking changes, campaign naming drift, duplicated lines, missing IDs, and backfilled conversions."
+  },
+  {
+    question: "How fast is turnaround?",
+    answer: "For a first pass: usually 24–48 hours after you send exports (depends on complexity)."
+  },
+  {
+    question: "Pricing?",
+    answer: "Phase 1 is concierge: per reconciliation (weekly/monthly) with a simple fixed price once scope is clear."
+  },
+  {
+    question: "How do you handle data / confidentiality?",
+    answer: "Start with CSV exports only—no ad-account access required. You can redact customer PII; we only need aggregate numbers + join keys. If it's a fit, we can work under an NDA."
+  }
+];
+---
+
+<Layout>
+  <Hero
+    eyebrow="For marketing agencies"
+    headline="Stop reconciling ad data every Friday"
+    subhead="We turn messy exports from Meta, Google, TikTok, and LinkedIn into one reconciled, client-ready report with an exceptions list—so you can close the week fast and bill with confidence."
+    primaryCta={{ text: "Get free template", href: "#cta" }}
+    secondaryCta={{ text: "Book 10-min sanity check", href: "#contact" }}
+    microcopy="No dashboards. No long setup. Start with CSV exports."
+    trustText="UK-based • No PII required • 24-48hr turnaround"
+  />
+
+  <FeatureGrid
+    title="What you get"
+    features={features}
+  />
+
+  <HowItWorks
+    title="How it works"
+    steps={steps}
+  />
+
+  <CTASection
+    title="Want a cleaner close this week?"
+    description="Get the free reconciliation template and see how much time you can save."
+    cta={{ text: "Get free template", href: "#contact" }}
+    variant="dark"
+  />
+
+  <FAQ
+    title="Questions?"
+    items={faqs}
+  />
+</Layout>

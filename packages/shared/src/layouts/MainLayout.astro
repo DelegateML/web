@@ -1,0 +1,58 @@
+---
+// Main Layout - Wraps BaseLayout with shared components
+// Includes Header and Footer with DelegateML branding
+
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  siteName: string;
+  siteTagline?: string;
+  ogImage?: string;
+  showHeader?: boolean;
+  showFooter?: boolean;
+  headerCta?: {
+    text: string;
+    href: string;
+  };
+}
+
+const { 
+  title, 
+  description, 
+  siteName,
+  siteTagline,
+  ogImage,
+  showHeader = true,
+  showFooter = true,
+  headerCta
+} = Astro.props;
+---
+
+<BaseLayout 
+  title={title} 
+  description={description} 
+  siteName={siteName}
+  ogImage={ogImage}
+>
+  {showHeader && (
+    <Header 
+      siteName={siteName} 
+      siteTagline={siteTagline}
+      cta={headerCta}
+    />
+  )}
+  
+  <main id="main-content">
+    <slot />
+  </main>
+  
+  {showFooter && (
+    <Footer 
+      siteName={siteName}
+    />
+  )}
+</BaseLayout>

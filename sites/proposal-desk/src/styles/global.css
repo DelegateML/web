@@ -1,0 +1,23 @@
+/*
+ * Proposal Desk - Global Styles
+ * Imports shared DelegateML styles and adds site-specific customizations
+ */
+
+/* Import shared styles from the packages directory */
+@import '@shared/styles/index.css';
+
+/* Proposal Desk specific customizations */
+:root {
+  /* Override or extend design tokens as needed */
+  --proposal-desk-primary: #1e3a5f;
+  --proposal-desk-secondary: #059669;
+}
+
+/* Site-specific utility classes */
+.proposal-desk-container {
+  max-width: var(--max-content);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-l);
+  padding-right: var(--space-l);
+}

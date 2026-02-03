@@ -1,0 +1,25 @@
+---
+import MainLayout from '@shared/layouts/MainLayout.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Monthly ESG reporting, done for you', 
+  description = 'Concierge ESG reporting service for UK mid-market teams. We run the monthly "collect → reconcile → approve" workflow so you can focus on outcomes.'
+} = Astro.props;
+
+const siteName = 'ESG Reporting';
+---
+
+<MainLayout 
+  title={title} 
+  description={description}
+  siteName={siteName}
+  siteTagline="By DelegateML"
+  headerCta={{ text: 'Get checklist', href: '#cta' }}
+>
+  <slot />
+</MainLayout>

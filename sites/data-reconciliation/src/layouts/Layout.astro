@@ -1,0 +1,25 @@
+---
+import MainLayout from '@shared/layouts/MainLayout.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Stop reconciling ad data every Friday', 
+  description = 'We turn messy exports from Meta/Google/TikTok/LinkedIn into one reconciled, client-ready report—so you can close the week fast and bill with confidence.'
+} = Astro.props;
+
+const siteName = 'Data Reconciliation';
+---
+
+<MainLayout 
+  title={title} 
+  description={description}
+  siteName={siteName}
+  siteTagline="By DelegateML"
+  headerCta={{ text: 'Get free template', href: '#cta' }}
+>
+  <slot />
+</MainLayout>

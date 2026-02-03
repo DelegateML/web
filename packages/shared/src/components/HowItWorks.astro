@@ -1,0 +1,192 @@
+---
+// How It Works Component
+// Numbered steps section with connector lines
+
+interface Step {
+  number: number;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  steps: Step[];
+  variant?: 'light' | 'dark';
+}
+
+const { title, description, steps, variant = 'light' } = Astro.props;
+
+const sectionClass = variant === 'dark' ? 'how-it-works-dark' : 'how-it-works';
+---
+
+<section class={sectionClass} id="how-it-works" aria-labelledby="how-heading">
+  <div class="how-container">
+    <div class="how-header">
+      <h2 id="how-heading" class="how-title">
+        {title}
+      </h2>
+      {description && (
+        <p class="how-description">{description}</p>
+      )}
+    </div>
+    
+    <div class="steps">
+      {steps.map((step, index) => (
+        <div class="step">
+          <div class="step-number">{step.number}</div>
+          <div class="step-content">
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-description">{step.description}</p>
+          </div>
+          {index < steps.length - 1 && <div class="step-connector" aria-hidden="true" />}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .how-it-works {
+    padding: var(--section) 0;
+    background-color: var(--bg-surface);
+  }
+  
+  .how-it-works-dark {
+    padding: var(--section) 0;
+    background-color: var(--bg-dark);
+    color: var(--text-inverse);
+  }
+  
+  .how-container {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0 var(--space-l);
+  }
+  
+  .how-header {
+    max-width: var(--max-narrow);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .how-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-m);
+    font-family: var(--font-display);
+  }
+  
+  .how-it-works-dark .how-title {
+    color: var(--text-inverse);
+  }
+  
+  .how-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+  }
+  
+  .how-it-works-dark .how-description {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .steps {
+    display: grid;
+    gap: var(--space-xl);
+  }
+  
+  @media (min-width: 768px) {
+    .steps {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2xl);
+    }
+  }
+  
+  .step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+  }
+  
+  @media (min-width: 768px) {
+    .step {
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+  
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent);
+    background-color: var(--accent-light);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  .how-it-works-dark .step-number {
+    background-color: rgba(30, 58, 95, 0.5);
+    color: var(--text-inverse);
+  }
+  
+  .step-content {
+    flex: 1;
+  }
+  
+  .step-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: var(--space-s);
+    font-family: var(--font-body);
+  }
+  
+  .how-it-works-dark .step-title {
+    color: var(--text-inverse);
+  }
+  
+  .step-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+  }
+  
+  .how-it-works-dark .step-description {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .step-connector {
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    .step-connector {
+      display: block;
+      position: absolute;
+      top: 24px;
+      left: calc(100% + var(--space-m));
+      width: calc(var(--space-xl) - var(--space-m));
+      height: 2px;
+      background-image: linear-gradient(to right, var(--border-medium) 50%, transparent 50%);
+      background-size: 8px 2px;
+      background-repeat: repeat-x;
+    }
+    
+    .how-it-works-dark .step-connector {
+      background-image: linear-gradient(to right, rgba(255,255,255,0.2) 50%, transparent 50%);
+    }
+    
+    .step:last-child .step-connector {
+      display: none;
+    }
+  }
+</style>
