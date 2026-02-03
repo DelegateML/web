@@ -210,49 +210,31 @@ Each site has a dedicated team folder with comprehensive content and strategy ma
 ## Implementation Checklist
 
 **Instructions:** Work through this checklist sequentially. Mark items as `[x]` when completed. If you encounter blockers, note them in the "Blockers" section below before handing off to another agent.
-Before starting any webdesign work:
-- Read both skill files (`skills/frontend-design/SKILL.md`, `skills/b2b-saas-site/SKILL.md`)
-- Review all three `teams/{site}/landing-page-copy.md` files to understand content
 
-### Phase 1: Foundation (Do First) ✅ COMPLETE
-- [x] Set up Astro project with Tailwind CSS
-- [x] Configure shared design tokens (colors, typography, spacing)
-- [x] Set up base path handling for GitHub Pages subpaths
-- [x] Create shared component directory structure
+### Phase 1: Foundation (Do First)
+- [ ] Read both skill files (`skills/frontend-design/SKILL.md`, `skills/b2b-saas-site/SKILL.md`)
+- [ ] Review all three `teams/{site}/landing-page-copy.md` files to understand content
+- [ ] Set up Astro project with Tailwind CSS
+- [ ] Configure shared design tokens (colors, typography, spacing)
+- [ ] Set up base path handling for GitHub Pages subpaths
+- [ ] Create shared component directory structure
 
 **Blockers for Phase 1:**
 <!-- Note any issues encountered here -->
-None. Phase 1 completed successfully.
 
-**Phase 1 Notes for Next Agent:**
-- Monorepo structure created with npm workspaces
-- Shared design tokens use distinctive fonts: Plus Jakarta Sans (display) and Source Serif 4 (body)
-- Brand color is deep teal (#0d7377) for trust/professional feel
-- Each site configured with correct base path for GitHub Pages deployment
-- Sites build to `web/dist/{site-name}/` directory
-- Placeholder pages created - ready for Phase 2 component buildout
-
-### Phase 2: Design System Components ✅ COMPLETE
-- [x] Build Header/Nav component with mobile hamburger
-- [x] Build Hero section component
-- [x] Build Feature grid component
-- [x] Build Testimonials/Credibility component
-- [x] Build CTA strip component
-- [x] Build Footer component with DelegateML branding
-- [x] Add subtle animations (fade/slide on scroll, hover states)
-- [x] Implement reduced-motion accessibility fallback
-- [x] Test responsive breakpoints (mobile, tablet, desktop)
+### Phase 2: Design System Components
+- [ ] Build Header/Nav component with mobile hamburger
+- [ ] Build Hero section component
+- [ ] Build Feature grid component
+- [ ] Build Testimonials/Credibility component
+- [ ] Build CTA strip component
+- [ ] Build Footer component with DelegateML branding
+- [ ] Add subtle animations (fade/slide on scroll, hover states)
+- [ ] Implement reduced-motion accessibility fallback
+- [ ] Test responsive breakpoints (mobile, tablet, desktop)
 
 **Blockers for Phase 2:**
 <!-- Note any issues encountered here -->
-None. Phase 2 completed successfully.
-
-**Phase 2 Notes for Next Agent:**
-- Shared components are in `web/packages/shared/src/components/`.
-- Use `import Component from '@delegateml/shared/components/Component.astro'` to use them.
-- `Layout.astro` now correctly bundles `design-tokens.css`.
-- The `data-reconciliation` site has a working smoke test index page demonstrating component usage.
-- SVG Logos are available as `<Logo />` and `<LogoMark />`.
 
 ### Phase 3: Site Buildout - Data Reconciliation
 - [ ] Read `teams/data-reconciliation/landing-page-copy.md`
